@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Park Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Authentication Container -->
+        <div class="auth-container" id="authContainer">
+            <div class="forms-container">
+                <!-- Login Form -->
+                <div class="form-section login-form" id="loginForm">
+                    <div class="logo-container">
+                        <i class="fas fa-paw logo-icon"></i>
+                        <h2>Safari Park Admin</h2>
+                    </div>
+                    <h3>Admin Login</h3>
+                    <form id="loginFormElement">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" id="loginUsername" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn-login">Login</button>
+                    </form>
+                    <p class="form-switch">New admin? <a href="#" id="showRegister">Register here</a></p>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="form-section register-form" id="registerForm">
+                    <div class="logo-container">
+                        <i class="fas fa-paw logo-icon"></i>
+                        <h2>Safari Park Admin</h2>
+                    </div>
+                    <h3>Admin Registration</h3>
+                    <form id="registerFormElement">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Full Name" id="regName" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" id="regEmail" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-user-circle"></i>
+                            <input type="text" placeholder="Username" id="regUsername" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" id="regPassword" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-key"></i>
+                            <input type="password" placeholder="Confirm Password" id="regConfirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn-register">Register</button>
+                    </form>
+                    <p class="form-switch">Already registered? <a href="#" id="showLogin">Login here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Container (initially hidden) -->
+        <div class="dashboard-container" id="dashboardContainer">
+            <!-- Sidebar Navigation -->
+            <div class="sidebar">
+                <div class="logo-container">
+                    <i class="fas fa-paw logo-icon"></i>
+                    <h2>Safari Admin</h2>
+                </div>
+                <div class="admin-profile">
+                    <div class="admin-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <p id="adminName">Admin User</p>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" data-section="gps-map">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>GPS Map</span>
+                    </li>
+                    <li class="nav-item" data-section="animal-spotting">
+                        <i class="fas fa-binoculars"></i>
+                        <span>Animal Spotting</span>
+                    </li>
+                    <li class="nav-item" data-section="track-animals">
+                        <i class="fas fa-route"></i>
+                        <span>Track Animals</span>
+                    </li>
+                    <li class="nav-item" data-section="alerts">
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                        <span class="notification-badge">3</span>
+                    </li>
+                    <li class="nav-item" data-section="gallery">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery</span>
+                    </li>
+                    <li class="nav-item" data-section="events">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Events</span>
+                    </li>
+                    <li class="nav-item" data-section="park-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Park Information</span>
+                    </li>
+                    <li class="nav-item" data-section="help">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </li>
+                    <li class="nav-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Top Header -->
+                <div class="top-header">
+                    <div class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-actions">
+                        <div class="action-item">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </div>
+                        <div class="action-item">
+                            <i class="fas fa-envelope"></i>
+                            <span class="badge">5</span>
+                        </div>
+                        <div class="action-item user-profile">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Sections -->
+                <!-- Home Section -->
+                <div class="dashboard-section active" id="home">
+                    <h2>Dashboard Overview</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>145</h3>
+                                <p>Animals Tracked</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-binoculars"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>38</h3>
+                                <p>Recent Spottings</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>12</h3>
+                                <p>Upcoming Events</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>423</h3>
+                                <p>Daily Visitors</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-widgets">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Recent Animal Sightings</h3>
+                                <div class="widget-actions">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="recent-sightings">
+                                    <li>
+                                        <div class="sighting-info">
+                                            <div class="sighting-icon lion">
+                                                <i class="fas fa-cat"></i>
+                                            </div>
+                                            <div class="sighting-details">
+                                                <h4>Lion Pride</h4>
+                                                <p>Savanna Zone - 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="sighting-actions">
+                                            <a href="#"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sighting-info">
+                                            <div class="sighting-icon elephant">
+                                                <i class="fas fa-horse"></i>
+                                            </div>
+                                            <div class="sighting-details">
+                                                <h4>Elephant Herd</h4>
+                                                <p>Water Hole - 1 hour ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="sighting-actions">
+                                            <a href="#"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sighting-info">
+                                            <div class="sighting-icon giraffe">
+                                                <i class="fas fa-long-arrow-alt-up"></i>
+                                            </div>
+                                            <div class="sighting-details">
+                                                <h4>Giraffe Family</h4>
+                                                <p>Acacia Forest - 2 hours ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="sighting-actions">
+                                            <a href="#"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sighting-info">
+                                            <div class="sighting-icon rhino">
+                                                <i class="fas fa-shield-alt"></i>
+                                            </div>
+                                            <div class="sighting-details">
+                                                <h4>White Rhino</h4>
+                                                <p>Eastern Plains - 3 hours ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="sighting-actions">
+                                            <a href="#"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Today's Events</h3>
+                                <div class="widget-actions">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="today-events">
+                                    <li>
+                                        <div class="event-time">09:00 AM</div>
+                                        <div class="event-details">
+                                            <h4>Morning Safari Tour</h4>
+                                            <p>Main Entrance - Guide: John</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="event-time">11:30 AM</div>
+                                        <div class="event-details">
+                                            <h4>Lion Feeding</h4>
+                                            <p>Lion Enclosure - Staff: Sarah</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="event-time">02:00 PM</div>
+                                        <div class="event-details">
+                                            <h4>Wildlife Photography</h4>
+                                            <p>Visitor Center - Host: Michael</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="event-time">04:30 PM</div>
+                                        <div class="event-details">
+                                            <h4>Sunset Safari Tour</h4>
+                                            <p>Main Entrance - Guide: Emma</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GPS Map Section -->
+                <div class="dashboard-section" id="gps-map">
+                    <h2>GPS Park Map</h2>
+                    <div class="section-controls">
+                        <button class="control-btn add-btn">
+                            <i class="fas fa-plus"></i> Add Location
+                        </button>
+                        <button class="control-btn edit-btn">
+                            <i class="fas fa-edit"></i> Edit Map
+                        </button>
+                        <button class="control-btn refresh-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                    <div class="map-container">
+                        <div class="park-map" id="parkMap">
+                            <!-- Map will be loaded via JavaScript -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Interactive Park Map</p>
+                            </div>
+                        </div>
+                        <div class="map-sidebar">
+                            <div class="map-legend">
+                                <h3>Map Legend</h3>
+                                <ul>
+                                    <li><span class="legend-color" style="background-color: #a5d6a7;"></span> Safari Zone</li>
+                                    <li><span class="legend-color" style="background-color: #90caf9;"></span> Water Bodies</li>
+                                    <li><span class="legend-color" style="background-color: #ffcc80;"></span> Tourist Areas</li>
+                                    <li><span class="legend-color" style="background-color: #ef9a9a;"></span> Restricted Zone</li>
+                                    <li><span class="legend-marker"><i class="fas fa-paw"></i></span> Animal Sighting</li>
+                                    <li><span class="legend-marker"><i class="fas fa-utensils"></i></span> Feeding Area</li>
+                                    <li><span class="legend-marker"><i class="fas fa-car"></i></span> Safari Vehicle</li>
+                                </ul>
+                            </div>
+                            <div class="active-locations">
+                                <h3>Active Locations</h3>
+                                <ul>
+                                    <li>
+                                        <div class="location-label">Lion Pride</div>
+                                        <div class="location-coords">S 1.23°, E 36.87°</div>
+                                    </li>
+                                    <li>
+                                        <div class="location-label">Elephant Herd</div>
+                                        <div class="location-coords">S 1.25°, E 36.92°</div>
+                                    </li>
+                                    <li>
+                                        <div class="location-label">Giraffe Feeding</div>
+                                        <div class="location-coords">S 1.21°, E 36.84°</div>
+                                    </li>
+                                    <li>
+                                        <div class="location-label">Safari Vehicle #3</div>
+                                        <div class="location-coords">S 1.28°, E 36.89°</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animal Spotting Section -->
+                <div class="dashboard-section" id="animal-spotting">
+                    <h2>Animal Spotting Management</h2>
+                    <div class="section-controls">
+                        <button class="control-btn add-btn">
+                            <i class="fas fa-plus"></i> Add Spotting
+                        </button>
+                        <button class="control-btn view-btn">
+                            <i class="fas fa-list"></i> View All
+                        </button>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Search spottings...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="spotting-container">
+                        <div class="spotting-form">
+                            <h3>Add New Animal Spotting</h3>
+                            <form id="spottingForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Animal Type</label>
+                                        <select id="animalType">
+                                            <option value="">Select Animal</option>
+                                            <option value="lion">Lion</option>
+                                            <option value="elephant">Elephant</option>
+                                            <option value="giraffe">Giraffe</option>
+                                            <option value="zebra">Zebra</option>
+                                            <option value="rhino">Rhino</option>
+                                            <option value="hippo">Hippopotamus</option>
+                                            <option value="cheetah">Cheetah</option>
+                                            <option value="buffalo">Buffalo</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Number of Animals</label>
+                                        <input type="number" id="animalCount" min="1" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <select id="location">
+                                            <option value="">Select Location</option>
+                                            <option value="savanna">Savanna Zone</option>
+                                            <option value="waterhole">Water Hole</option>
+                                            <option value="forest">Acacia Forest</option>
+                                            <option value="plains">Eastern Plains</option>
+                                            <option value="river">River Banks</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>GPS Coordinates</label>
+                                        <div class="coords-inputs">
+                                            <input type="text" id="latitude" placeholder="Latitude (S 1.23°)">
+                                            <input type="text" id="longitude" placeholder="Longitude (E 36.87°)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Spotted By</label>
+                                        <input type="text" id="spottedBy" placeholder="Guide/Staff Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date & Time</label>
+                                        <input type="datetime-local" id="spottingTime">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label>Description</label>
+                                        <textarea id="spottingDescription" placeholder="Additional details about the spotting..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label>Upload Image</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="spottingImage" accept="image/*">
+                                            <label for="spottingImage">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <span>Choose a file</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-submit">Submit Spotting</button>
+                                    <button type="reset" class="btn-reset">Clear Form</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="spotting-list">
+                            <h3>Recent Spottings</h3>
+                            <div class="spotting-items">
+                                <div class="spotting-item">
+                                    <div class="spotting-image">
+                                        <div class="image-placeholder">
+                                            <i class="fas fa-cat"></i>
+                                        </div>
+                                    </div>
+                                    <div class="spotting-details">
+                                        <h4>Lion Pride</h4>
+                                        <p class="spotting-meta">5 animals at Savanna Zone</p>
+                                        <p class="spotting-time">Today, 9:45 AM - by Guide John</p>
+                                        <p class="spotting-desc">Adult male with four females resting under acacia tree.</p>
+                                    </div>
+                                    <div class="spotting-actions">
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="spotting-item">
+                                    <div class="spotting-image">
+                                        <div class="image-placeholder">
+                                            <i class="fas fa-horse"></i>
+                                        </div>
+                                    </div>
+                                    <div class="spotting-details">
+                                        <h4>Elephant Herd</h4>
+                                        <p class="spotting-meta">12 animals at Water Hole</p>
+                                        <p class="spotting-time">Today, 8:30 AM - by Guide Sarah</p>
+                                        <p class="spotting-desc">Large family group with 3 calves drinking water.</p>
+                                    </div>
+                                    <div class="spotting-actions">
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="spotting-item">
+                                    <div class="spotting-image">
+                                        <div class="image-placeholder">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="spotting-details">
+                                        <h4>White Rhino</h4>
+                                        <p class="spotting-meta">2 animals at Eastern Plains</p>
+                                        <p class="spotting-time">Yesterday, 4:15 PM - by Guide Michael</p>
+                                        <p class="spotting-desc">Mother and juvenile grazing peacefully.</p>
+                                    </div>
+                                    <div class="spotting-actions">
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track Animals Section -->
+                <div class="dashboard-section" id="track-animals">
+                    <h2>Animal Tracking</h2>
+                    <div class="tracking-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>145</h3>
+                                <p>Total Animals</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>62</h3>
+                                <p>GPS Tracked</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>24</h3>
+                                <p>Migrations</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>5</h3>
+                                <p>Rare Sightings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tracking-container">
+                        <div class="tracking-filters">
+                            <div class="filter-group">
+                                <label>Filter by Species</label>
+                                <select id="speciesFilter">
+                                    <option value="all">All Species</option>
+                                    <option value="lion">Lions</option>
+                                    <option value="elephant">Elephants</option>
+                                    <option value="rhino">Rhinos</option>
+                                    <option value="giraffe">Giraffes</option>
+                                    <option value="zebra">Zebras</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Time Period</label>
+                                <select id="timeFilter">
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Show Only</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="showRare" checked>
+                                    <label for="showRare">Rare Species</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="showTracked" checked>
+                                    <label for="showTracked">GPS Tracked</label>
+                                </div>
+                            </div>
+                            <button class="filter-btn">Apply Filters</button>
+                        </div>
+                        <div class="tracking-map" id="trackingMap">
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Animal Tracking Map</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tracking-data">
+                        <div class="data-header">
+                            <h3>Tracked Animals</h3>
+                            <div class="data-controls">
+                                <button class="control-btn">
+                                    <i class="fas fa-file-export"></i> Export
+                                </button>
+                                <button class="control-btn">
+                                    <i class="fas fa-sync-alt"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                        <div class="data-table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Species</th>
+                                        <th>Nickname</th>
+                                        <th>Last Seen</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>L-001</td>
+                                        <td>Lion</td>
+                                        <td>Simba</td>
+                                        <td>Today, 9:45 AM</td>
+                                        <td>Savanna Zone</td>
+                                        <td><span class="status active">Active</span></td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="table-action view"><i class="fas fa-eye"></i></button>
+                                                <button class="table-action edit"><i class="fas fa-edit"></i></button>
+                                                <button class="table-action history"><i class="fas fa-history"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-012</td>
+                                        <td>Elephant</td>
+                                        <td>Tembo</td>
+                                        <td>Today, 8:30 AM</td>
+                                        <td>Water Hole</td>
+                                        <td><span class="status active">Active</span></td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="table-action view"><i class="fas fa-eye"></i></button>
+                                                <button class="table-action edit"><i class="fas fa-edit"></i></button>
+                                                <button class="table-action history"><i class="fas fa-history"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>R-005</td>
+                                        <td>Rhino</td>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Ridiyagama Safari Park</title>
+  <link rel="stylesheet" href="admindashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo-container">
+        <img src="logo.png" alt="Ridiyagama Safari Park" id="logo">
+        <h2>Admin Panel</h2>
+      </div>
+      <nav class="admin-nav">
+        <ul>
+          <li class="active"><a href="#dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+          <li><a href="#content"><i class="fas fa-edit"></i> Content Management</a></li>
+          <li><a href="#users"><i class="fas fa-users"></i> User Management</a></li>
+          <li><a href="adminevent.html"><i class="fas fa-calendar-alt"></i> Event Management</a></li>
+          <li><a href="#gallery"><i class="fas fa-images"></i> Gallery Management</a></li>
+          <li><a href="#settings"><i class="fas fa-cogs"></i> Settings</a></li>
+        </ul>
+      </nav>
+      <div class="site-nav">
+        <h3>Site Navigation</h3>
+        <ul>
+          <li><a href="home4.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="map.html"><i class="fas fa-map"></i> Map</a></li>
+          <li><a href="gallery.html"><i class="fas fa-image"></i> Gallery</a></li>
+          <li><a href="event.html"><i class="fas fa-calendar"></i> Events</a></li>
+          <li><a href="information.html"><i class="fas fa-info-circle"></i> Information</a></li>
+          <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+          <li><a href="logout.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header class="dashboard-header">
+        <div class="search-container">
+          <input type="text" placeholder="Search..." id="search-input">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user-info">
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="admin-profile">
+            <img src="admin-avatar.png" alt="Admin Avatar">
+            <span>Admin User</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <h1>Dashboard Overview</h1>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon visitors">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Visitors</h3>
+              <p class="stat-number">24,521</p>
+              <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 12% since last month</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon revenue">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Revenue</h3>
+              <p class="stat-number">$135,842</p>
+              <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 8% since last month</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon events">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Active Events</h3>
+              <p class="stat-number">12</p>
+              <p class="stat-change neutral"><i class="fas fa-minus"></i> No change</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon feedback">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-info">
+              <h3>User Ratings</h3>
+              <p class="stat-number">4.8/5</p>
+              <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 0.2 since last month</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-container">
+          <div class="chart-card">
+            <h3>Visitor Traffic</h3>
+            <div class="chart" id="visitor-chart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Popular Attractions</h3>
+            <div class="chart" id="attractions-chart"></div>
+          </div>
+        </div>
+
+        <div class="tables-container">
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Activity</th>
+                  <th>User</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Added new event: "Lion Feeding"</td>
+                  <td>Admin User</td>
+                  <td>Today, 10:23 AM</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Updated gallery photos</td>
+                  <td>Content Manager</td>
+                  <td>Today, 9:41 AM</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Modified ticket prices</td>
+                  <td>Finance Admin</td>
+                  <td>Yesterday, 4:12 PM</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Website maintenance</td>
+                  <td>System Admin</td>
+                  <td>Yesterday, 2:30 PM</td>
+                  <td><span class="status pending">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td>Backup system data</td>
+                  <td>System</td>
+                  <td>Yesterday, 1:00 AM</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="upcoming-events">
+            <h3>Upcoming Events</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Event Name</th>
+                  <th>Date</th>
+                  <th>Bookings</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Safari Night Tour</td>
+                  <td>Mar 15, 2025</td>
+                  <td>42/50</td>
+                  <td>
+                    <button class="btn-view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Wildlife Photography Workshop</td>
+                  <td>Mar 18, 2025</td>
+                  <td>15/25</td>
+                  <td>
+                    <button class="btn-view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Conservation Talk</td>
+                  <td>Mar 22, 2025</td>
+                  <td>28/100</td>
+                  <td>
+                    <button class="btn-view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn-add-event">Add New Event</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+  <script src="admindashboard.js"></script>
+</body>
+</html>

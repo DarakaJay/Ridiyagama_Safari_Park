@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Ridiyagama Safari Park</title>
+  <link rel="stylesheet" href="gal.css">
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Tiger" width="150px" height="100px">
+    <header class="header">
+      <nav class="nav">
+        <ul>
+          <li><a href="home4.html">Home</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Information</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#" class="logout-btn">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="gallery">
+        <h2>Gallery - Photos and Videos of Ridiyagama Safari Park</h2>
+        <div class="gallery-grid">
+          <!-- Example images and videos -->
+          <div class="gallery-item">
+            <img src="animal1.jpg" alt="Lion" onclick="openModal(this)">
+          </div>
+          <div class="gallery-item">
+            <img src="animal2.jpg" alt="Elephant" onclick="openModal(this)">
+          </div>
+          <div class="gallery-item">
+            <video controls onclick="openModal(this)">
+              <source src="video1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="gallery-item">
+            <img src="animal3.jpg" alt="Giraffe" onclick="openModal(this)">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="contact">
+        <h3>Contact Information</h3>
+        <p>Address: Ridiyagama Safari Park, Hambantota, Sri Lanka</p>
+        <p>Phone: +94 47 223 4567</p>
+        <p>Email: info@ridiyagamasafari.lk</p>
+      </div>
+      <div class="hours">
+        <h3>Opening Hours</h3>
+        <p>Monday to Sunday: 6:30 AM - 5:30 PM</p>
+      </div>
+      <div class="social">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="#">Facebook: @RidiyagamaSafariPark</a></li>
+          <li><a href="#">Instagram: @ridiyagamasafaripark</a></li>
+          <li><a href="#">Twitter: @RidiyagamaSafari</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content">
+      <!-- Image or video will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script src="gal.js"></script>
+</body>
+</html>

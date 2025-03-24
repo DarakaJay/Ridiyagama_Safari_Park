@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Registrations</title>
+  <link rel="stylesheet" href="registrationtable.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registered Users</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        // Connect to the database
+        $conn = new mysqli('localhost', 'root', '', 'safari_park');
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Fetch records
+        $sql = "SELECT * FROM registrations";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>{$row['id']}</td>
+                    <td>{$row['full_name']}</td>
+                    <td>{$row['email']}</td>
+                    <td>{$row['phone']}</td>
+                    <td>
+                      <a href='update.php?id={$row['id']}'>Update</a> |
+                      <a href='delete.php?id={$row['id']}' onclick='return confirm("Are you sure?")'>Delete</a>
+                    </td>
+                  </tr>";
+          }
+        } else {
+          echo "<tr><td colspan='5'>No records found</td></tr>";
+        }
+
+        $conn->close();
+        ?>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

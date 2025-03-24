@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Park Admin System</title>
+    <link rel="stylesheet" href="adminloginandreg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <!-- Login Form -->
+            <div class="form-section login-form" id="loginForm">
+                <div class="logo-container">
+                    <i class="fas fa-paw logo-icon"></i>
+                    <h2 id="header-title">Safari Park Admin</h2>
+                </div>
+                <h3>Welcome Back</h3>
+                <p class="form-description">Log in to access the dashboard features and manage the Safari Park system.</p>
+                <form id="loginFormElement">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" id="loginUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="loginPassword" required>
+                    </div>
+                    <div class="remember-forgot">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+                <p class="form-switch">New admin? <a href="#" id="showRegister">Register here</a></p>
+                <div class="decorative-element">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form-section register-form" id="registerForm">
+                <div class="logo-container">
+                    <i class="fas fa-paw logo-icon"></i>
+                    <h2 id="header-title">Safari Park Admin</h2>
+                </div>
+                <h3>Create Account</h3>
+                <p class="form-description">Register new users for the Safari Park administration system.</p>
+                <form id="registerFormElement">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" id="regName" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="regEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user-circle"></i>
+                        <input type="text" placeholder="Username" id="regUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="regPassword" required>
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-key"></i>
+                        <input type="password" placeholder="Confirm Password" id="regConfirmPassword" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-briefcase"></i>
+                        <select id="adminRole" required>
+                            <option value="">Select Role</option>
+                            <option value="superadmin">Super Admin</option>
+                            <option value="admin">Admin</option>
+                            <option value="moderator">Moderator</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                    <div class="terms-privacy">
+                        <input type="checkbox" id="termsAgree" required>
+                        <label for="termsAgree">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button type="submit" class="btn-register">Register</button>
+                </form>
+                <p class="form-switch">Already registered? <a href="#" id="showLogin">Login here</a></p>
+                <div class="decorative-element">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Safari Info Panel -->
+        <div class="info-panel">
+            <div class="safari-image"></div>
+            <div class="info-content">
+                <h2>Safari Park Management System</h2>
+                <p>Manage your Safari Park with an intuitive dashboard. Track animals, monitor visitors, handle events, and more.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-map-marked-alt"></i> GPS-enabled park mapping</li>
+                    <li><i class="fas fa-binoculars"></i> Animal spotting records</li>
+                    <li><i class="fas fa-route"></i> Real-time animal tracking</li>
+                    <li><i class="fas fa-bell"></i> Wildlife alerts and notifications</li>
+                    <li><i class="fas fa-calendar-alt"></i> Event management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Safari Park Administration. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="adminloginandreg.js"></script>
+</body>
+</html>

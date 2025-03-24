@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ridiyagama Safari Park - Admin</title>
+  <link rel="stylesheet" href="adminhome.css">
+</head>
+<body>
+  <div class="container" id="main-container">
+    <img src="logo.png" alt="Tiger" width="150px" height="100px" id="logo">
+    <header class="header" id="header">
+      <nav class="nav" id="navbar">
+        <ul id="nav-list">
+          <li id="nav-home"><a href="home4.html">Home</a></li>
+          <li id="nav-map"><a href="map.html">Map</a></li>
+          <li id="nav-gallery"><a href="gallery.html">Gallery</a></li>
+          <li id="nav-events"><a href="event.html">Events</a></li>
+          <li id="nav-info"><a href="information.html">Information</a></li>
+          <li id="nav-help"><a href="help.html">Help</a></li>
+          <li id="nav-logout"><a href="logout.html" class="logout-btn">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <h1>Edit Home Details</h1>
+
+      <!-- Form for inserting, updating, or deleting content -->
+      <form id="admin-form">
+        <label for="content-type">Select Content Type:</label>
+        <select id="content-type">
+          <option value="about">About Section</option>
+          <option value="planning">Planning Section</option>
+          <option value="contact">Contact Information</option>
+        </select><br><br>
+
+        <label for="new-content">New Content:</label><br>
+        <textarea id="new-content" rows="5" cols="50"></textarea><br><br>
+
+        <button type="button" onclick="submitContent()">Update Content</button>
+        <button type="button" onclick="deleteContent()">Delete Content</button>
+      </form>
+
+      <section class="about" id="about-section">
+        <h2 id="about-heading">A little bit about Ridiyagama Safari Park Srilanka</h2>
+        <p id="about-paragraph1">Welcome to Ridiyagama Safari Park...</p>
+        <p id="about-paragraph2">The park is thoughtfully divided...</p>
+        <p id="about-paragraph3">Embark on a guided safari tour...</p>
+      </section>
+
+      <section class="planning" id="planning-section">
+        <h2 id="planning-heading">Planning your Ridiyagama Safari Adventure</h2>
+        <p id="planning-paragraph1">Part of the excitement...</p>
+        <p id="planning-paragraph2">To make your trip seamless...</p>
+        <p id="planning-paragraph3">And if you're still unsure...</p>
+      </section>
+
+      <footer id="footer">
+        <div class="contact" id="contact-info">
+          <h3 id="contact-heading">Contact Information</h3>
+          <p id="address">Address: Ridiyagama Safari Park...</p>
+          <p id="phone">Phone: +94 47 223 4567</p>
+          <p id="email">Email: info@ridiyagamasafari.lk</p>
+        </div>
+      </footer>
+    </main>
+
+  </div>
+
+  <script>
+    // Function to simulate the update of content based on admin input
+    function submitContent() {
+      const contentType = document.getElementById('content-type').value;
+      const newContent = document.getElementById('new-content').value;
+
+      // Handle content update based on selection
+      if (contentType === 'about') {
+        document.getElementById('about-paragraph1').innerText = newContent;
+        alert("About section updated!");
+      } else if (contentType === 'planning') {
+        document.getElementById('planning-paragraph1').innerText = newContent;
+        alert("Planning section updated!");
+      } else if (contentType === 'contact') {
+        document.getElementById('address').innerText = newContent;
+        alert("Contact information updated!");
+      } else {
+        alert("Invalid content type selected.");
+      }
+
+      // Clear the form after submission
+      document.getElementById('admin-form').reset();
+    }
+  </script>
+</body>
+</html>

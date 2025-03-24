@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <ul>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#gps-map">View GPS Map</a></li>
+        <li><a href="#animal-spotting">View Animal Spotting</a></li>
+        <li><a href="#track-animals">Track Animals</a></li>
+        <li><a href="#alerts">Receive Alerts</a></li>
+        <li><a href="#gallery">Browse Gallery</a></li>
+        <li><a href="#events">Check Events</a></li>
+        <li><a href="#information">Access Information</a></li>
+        <li><a href="#help">Get Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="register" class="card">
+      <h2>Register</h2>
+      <p>Admin can register new users for the Safari Park system.</p>
+      <button onclick="showMessage('Register feature clicked!')">Go to Register</button>
+    </section>
+
+    <section id="login" class="card">
+      <h2>Login</h2>
+      <p>Admin can log in to access and manage the dashboard features.</p>
+      <button onclick="showMessage('Login feature clicked!')">Go to Login</button>
+    </section>
+
+    
+    <section id="login" class="card">
+        <h2>Home details</h2>
+        <p>Admin can log in to access and manage the dashboard features.</p>
+        <button onclick="showMessage('Login feature clicked!')">Go to Homedetails</button>
+      </section>
+
+    <section id="gps-map" class="card">
+      <h2>View GPS Map</h2>
+      <p>Insert, update, or delete a GPS-enabled map of the park.</p>
+      <button onclick="showMessage('GPS Map feature clicked!')">Manage GPS Map</button>
+    </section>
+
+    <section id="animal-spotting" class="card">
+      <h2>View Animal Spotting</h2>
+      <p>Insert, update, or delete animal spotting information.</p>
+      <button onclick="showMessage('Animal Spotting feature clicked!')">Manage Spotting</button>
+    </section>
+
+    <section id="track-animals" class="card">
+      <h2>Track Animals</h2>
+      <p>Manage animal tracking data, including popular and rare sightings.</p>
+      <button onclick="showMessage('Track Animals feature clicked!')">Track Animals</button>
+    </section>
+
+    <section id="alerts" class="card">
+      <h2>Receive Alerts</h2>
+      <p>Send real-time notifications for events and animal feedings.</p>
+      <button onclick="showMessage('Alerts feature clicked!')">Manage Alerts</button>
+    </section>
+
+    <section id="gallery" class="card">
+      <h2>Browse Gallery</h2>
+      <p>Manage photos and videos of park events and animals.</p>
+      <button onclick="showMessage('Gallery feature clicked!')">Manage Gallery</button>
+    </section>
+
+    <section id="events" class="card">
+      <h2>Check Events</h2>
+      <p>Insert, update, or delete information about park events.</p>
+      <button onclick="showMessage('Events feature clicked!')">Manage Events</button>
+    </section>
+
+    <section id="information" class="card">
+      <h2>Access Information</h2>
+      <p>Manage general park details, FAQs, and animal profiles.</p>
+      <button onclick="showMessage('Information feature clicked!')">Manage Information</button>
+    </section>
+
+    <section id="help" class="card">
+      <h2>Get Help</h2>
+      <p>Manage contact information for assistance.</p>
+      <button onclick="showMessage('Help feature clicked!')">Manage Help</button>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

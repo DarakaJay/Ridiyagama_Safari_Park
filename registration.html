@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - Ridiyagama Safari Park Explorer</title>
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="registration-form">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" action="registration.php" method="POST">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullname" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Choose a username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Choose a password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmpassword" placeholder="Confirm your password" required>
+        </div>
+        
+          <div class="form-buttons">
+            <button type="submit" class="submit-btn" id="submit-button">Register</button>
+            <button type="button" class="btn btn-cancel" onclick="cancelRegistration()">Cancel</button>
+          </div>
+        </form>
+        <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="registration2.js"></script>
+</body>
+</html>
